@@ -1,19 +1,19 @@
 pkgname=1password
 
-_tarver=8.10.4
-_tar="1password-${_tarver}.x64.tar.gz"
+_tarver=8.10.6
+_tar="1password-latest.tar.gz"
 pkgver=${_tarver//-/_}
-pkgrel=32
-conflicts=('1password-beta' '1password-beta-bin')
+pkgrel=1
+conflicts=('1password' '1password-bin')
 pkgdesc="Password manager and secure wallet"
-arch=('x86_64')
+arch=('aarch64')
 url='https://1password.com'
 license=('LicenseRef-1Password-Proprietary')
 options=(!strip)
 install="1password.install"
 source=(https://downloads.1password.com/linux/tar/stable/${CARCH}/${_tar}{,.sig})
-sha256sums=('cc507c6d497414d98cbcd3790280de61d5236ac25b955c51022e74576045e4e5'
-            'bafbc376ab33eca19a35d2a94bc2c7e43dc6027199f9577b40828503c3b88462'
+sha256sums=('SKIP'
+            'SKIP'
 )
 validpgpkeys=('3FEF9748469ADBE15DA7CA80AC2D62742012EA22')
 
@@ -21,7 +21,7 @@ package() {
     depends=('hicolor-icon-theme' 'libgtk-3.so=0' 'nss')
 
     # Go to source directory
-    cd "1password-${_tarver}.x64"
+    cd "1password-${_tarver}.arm64"
 
     # Install icons
     resolutions=(32x32 64x64 256x256 512x512)
@@ -49,7 +49,7 @@ EOF" > ./com.1password.1Password.policy
     # Move package contents to /opt/1Password
     cd "${srcdir}"
     install -dm0755 "${pkgdir}"/opt
-    mv "1password-${_tarver}.x64" "${pkgdir}/opt/1Password"
+    mv "1password-${_tarver}.arm64" "${pkgdir}/opt/1Password"
 
     # Cleanup un-needed files
     rm "${pkgdir}"/opt/1Password/com.1password.1Password.policy "${pkgdir}"/opt/1Password/com.1password.1Password.policy.tpl "${pkgdir}"/opt/1Password/install_biometrics_policy.sh
