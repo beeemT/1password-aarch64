@@ -1,6 +1,6 @@
 pkgname=1password
 
-_tarver=8.10.30
+_tarver=8.10.60
 _tar="1password-latest.tar.gz"
 pkgver=${_tarver//-/_}
 pkgrel=1
