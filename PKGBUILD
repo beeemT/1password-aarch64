@@ -1,6 +1,6 @@
 pkgname=1password
 
-_tarver=8.10.60
+_tarver=8.10.75
 _tar="1password-latest.tar.gz"
 pkgver=${_tarver//-/_}
 pkgrel=1
@@ -18,7 +18,7 @@ sha256sums=('SKIP'
 validpgpkeys=('3FEF9748469ADBE15DA7CA80AC2D62742012EA22')
 
 package() {
-    depends=('hicolor-icon-theme' 'libgtk-3.so=0' 'nss')
+    depends=('hicolor-icon-theme' 'libgtk-3.so=0' 'nss' 'xdg-utils')
 
     # Go to source directory
     cd "1password-${_tarver}.arm64"
